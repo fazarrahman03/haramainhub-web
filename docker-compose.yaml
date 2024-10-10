@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  haramain-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - BASE_URL=http://stag-api-gateway:7000
+    networks:
+      - beli_paket
+networks:
+  beli_paket:
+    external: true
